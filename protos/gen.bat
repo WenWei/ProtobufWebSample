@@ -1,8 +1,10 @@
-@echo on
+@echo off
 SET PWD=%~dp0
+cd ..
+SET SLND=%CD%\
 
 set PROTOC=C:\bin\protoc.exe
-set CSHARP_OUT=%PWD%gen\csharp
+set CSHARP_OUT=%SLND%ProtobufWeb\ProtoGen
 set JS_OUT=%PWD%gen\js
 
 rd /S /Q %CSHARP_OUT%
@@ -27,6 +29,6 @@ echo } >> %JS_OUT%\exports.js
 cd %JS_OUT%
 call npm install google-protobuf
 
-browserify exports.js > bundle.js
+browserify exports.js > %SLND%ProtobufWeb\wwwroot\scripts\bundle.js
 
 cd %PWD%
