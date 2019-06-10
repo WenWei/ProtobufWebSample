@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+option csharp_namespace = "ProtobufWeb.ProtoGen";
+
+message EchoData {
+  string text = 1;
+  int32 age = 2;
+}
